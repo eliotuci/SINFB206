@@ -1,0 +1,12 @@
+#include "general.h"
+
+struct str_simple_agents {
+  int x_pos;
+  int y_pos;
+  float colors[3];
+};
+struct str_simple_agents agent_type_1[NUM_AGENTS_TYPE_1];
+struct str_simple_agents agent_type_2[NUM_AGENTS_TYPE_2];
+
+void init_agents_position_and_colour( void );
+void update_agents_positions ( void );
