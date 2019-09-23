@@ -1,3 +1,4 @@
+
 #ifndef _GENERAL_H_
 #define _GENERAL_H_
 
@@ -14,20 +15,37 @@
 #include <OpenGL/glu.h>
 #endif
 
+enum SHAPES {SQUARE, ROUND};
+
 #define X_WINDOW_SIZE 600
 #define Y_WINDOW_SIZE 600
 #define X_WINDOW_POS  200
 #define Y_WINDOW_POS  100
 #define NUM_CELLS_PER_COLUMN  20
 #define TIME_IN_MILLISECOND   500
+
 #define NUM_AGENTS_TYPE_1 10
+#define SHAPE_OF_AGENTS_TYPE_1 ROUND //SQUARE 
+#define TYPE_1_RED      1.0f //[0.0, 1.0]
+#define TYPE_1_GREEN    0.0f //[0.0, 1.0]
+#define TYPE_1_BLUE     0.0f //[0.0, 1.0]
+
 #define NUM_AGENTS_TYPE_2 10
+#define SHAPE_OF_AGENTS_TYPE_2 ROUND //SQUARE
+#define TYPE_2_RED      1.0f //[0.0, 1.0]
+#define TYPE_2_GREEN    0.0f //[0.0, 1.0]
+#define TYPE_2_BLUE     1.0f //[0.0, 1.0]
 
-#define B_RED           1.0f /* a float in [0,1] */
-#define B_GREEN         1.0f /* a float in [0,1] */
-#define B_BLUE          1.0f /* a float in [0,1] */
+//#define _PRINT_AGENTS_ID_
+ 
+#define B_RED           1.0f /* a float in [0.0, 1.0] */
+#define B_GREEN         1.0f /* a float in [0.0, 1.0] */
+#define B_BLUE          1.0f /* a float in [0.0, 1.0] */
 
-enum SHAPES {SQUARE, CIRCLE};
+#define LINES_RED       0.0f /* a float in [0.0, 1.0] */
+#define LINES_GREEN     1.0f /* a float in [0.0, 1.0] */
+#define LINES_BLUE      0.0f /* a float in [0.0, 1.0] */
+
 
 #define PI 3.14159265f
 

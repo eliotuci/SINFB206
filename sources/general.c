@@ -16,7 +16,7 @@ void init_generator( const int root_seed ){
 
 /* -------------------------------------------------------------------------- */
 void free_generator( void ){
-  gsl_rng_free ( r_rand );
+  gsl_rng_free ( r_rand );//Free the memory
 }
 /* -------------------------------------------------------------------------- */
 
@@ -31,17 +31,16 @@ void usage ( void )
 /* -------------------------------------------------------------------------- */
 void parse_command_line( int argc, char** argv )
 {
-  if( argc == 3 ){
-    //char option[2] = {'-','s'};
+  if( argc == 3 ){//argc : argumnent count argv : argument vector
     char option[] = "-s";
     if( !strcmp(argv[1], option ) ){
-      m_rootSeed = atoi( argv[2] );
-      if( m_rootSeed == 0 ) usage();
+      m_rootSeed = atoi( argv[2] ); // atoi( char ) Transform a char into an int
+      if( m_rootSeed == 0 ) usage(); // seed must be differnt from zero
     }
-    else usage();
+    else usage(); // You have the option -s with a seed
   }
   else{
-    usage();
+    usage(); // You have to run : ./program_name -s seed
   }
 }
 /* -------------------------------------------------------------------------- */

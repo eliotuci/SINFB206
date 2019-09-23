@@ -25,11 +25,13 @@ void draw_circle_agents( GLfloat min_coordinate, GLfloat max_coordinate, GLfloat
 	       min_coordinate + (size*y_pos+size/2) + sinf(angle) * (size/2));
   }
   glEnd();
+#ifdef _PRINT_AGENTS_ID_
   char sa[5];
   sprintf(sa, "%d", id);
   glColor3f(0.0f, 0.0f, 0.0f);
   renderBitmapString(min_coordinate + (size*x_pos + size/2),
 		     min_coordinate + (size*y_pos + size/2), (void*)GLUT_BITMAP_TIMES_ROMAN_24, sa);
+#endif
 }
 
 void draw_square_agents( GLfloat min_coordinate, GLfloat max_coordinate, GLfloat size,
@@ -58,7 +60,7 @@ void renderScene(void) {
   for(int i = 0, letter = 'a'; i < NUM_CELLS_PER_COLUMN+1; i++, ++letter){//This is a square grid
     GLfloat target_point = min_coordinate + (i*size);
     glBegin( GL_LINES );
-    glColor3f(0.0f, 0.0f, 0.0f);//This is to define the colour of the grid lines
+    glColor3f(LINES_RED, LINES_GREEN, LINES_BLUE);//This is to define the colour of the grid lines
     glVertex2f(min_coordinate, target_point); //X, and Y coordinate of the horizontal line start
     glVertex2f(max_coordinate, target_point );//X, and Y coordinate of the horizontal line end    
     glVertex2f(target_point, min_coordinate); //X, and Y coordinate of the vertical line start
@@ -122,8 +124,13 @@ void process_normal_keys( unsigned char key, int x, int y ){
 
 void animate ( int value ){
   glutTimerFunc(TIME_IN_MILLISECOND, animate, 0);
-  if( isAnimating )
+  if( isAnimating ){
+    //Ask to players to enter their move
+    //int user_input;
+    //printf("\n Please enter a number in [0-10] : \n");
+    //scanf("%d", &user_input);
     update_agents_positions ( );
+  }
   glutPostRedisplay();
 }
 
