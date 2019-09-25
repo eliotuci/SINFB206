@@ -15,9 +15,9 @@ void avoid_overlapping_agents_on_starting_state() {
     for (int a = 0; a < NUM_AGENTS_TYPE_2; a++) {
         for (int aa = 0; aa < NUM_AGENTS_TYPE_2; aa++) {
             if (a == aa) continue;
-            if (agent_type_1[a].x_pos == agent_type_1[aa].x_pos && agent_type_1[a].y_pos == agent_type_1[aa].y_pos) {
-                agent_type_1[a].x_pos = gsl_rng_uniform_int(r_rand, NUM_CELLS_PER_COLUMN);
-                agent_type_1[a].y_pos = gsl_rng_uniform_int(r_rand, NUM_CELLS_PER_COLUMN);
+            if (agent_type_2[a].x_pos == agent_type_2[aa].x_pos && agent_type_2[a].y_pos == agent_type_2[aa].y_pos) {
+                agent_type_2[a].x_pos = gsl_rng_uniform_int(r_rand, NUM_CELLS_PER_COLUMN);
+                agent_type_2[a].y_pos = gsl_rng_uniform_int(r_rand, NUM_CELLS_PER_COLUMN);
                 aa -= 1;
             }
         }
